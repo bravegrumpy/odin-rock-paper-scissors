@@ -41,7 +41,7 @@ function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toUpperCase();
     computerChoice = computerChoice.toUpperCase();
 
-    const WIN_CONDITIONS = [`You Lose! ${computerChoice} beats ${humanChoice}`, `You Win! ${humanChoice} beats ${computerChoice}`, "Tied Game!"]
+    const WIN_CONDITIONS = [`You Lose! ${computerChoice} beats ${humanChoice}`, `You Win! ${humanChoice} beats ${computerChoice}`, "Tie!"]
 
     let scoreDeclaration = `Human Choice: ${humanChoice}\nComputer Choice: ${computerChoice}`;
     let winner;
@@ -95,6 +95,7 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame(numberOfRounds) {
+    if (isNaN(numberOfRounds)) {playGame()}
     let humanScore=0, computerScore=0;
     let i=0;
     while (i < numberOfRounds) {
@@ -153,4 +154,24 @@ function getNumberOfRounds() {
     return rounds;
 }
 
-playGame(5);
+const app = document.getElementById("app");
+
+const results = document.createElement("div");
+results.classList.add("game");
+
+const button = document.createElement("button");
+button.classList.add("replay");
+button.innerText = "Play Tic Tac Toe";
+
+const settings = document.createElement("div");
+settings.classList.add("settings");
+settings.innerText = "Test"
+
+results.appendChild(button);
+// results.appendChild(settings);
+
+app.appendChild(results);
+
+button.addEventListener("click", () => {
+    let won = playGame(5);
+})
