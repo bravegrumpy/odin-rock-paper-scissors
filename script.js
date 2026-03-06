@@ -1,3 +1,5 @@
+let humanScore=0, computerScore=0;
+
 function getComputerChoice() {
     let choice = Math.floor((Math.random() * 3 ));
     switch (choice) {
@@ -32,15 +34,14 @@ function getHumanChoice() {
     }
 }
 
-let humanScore=0, computerScore=0;
-
 function playRound(humanChoice, computerChoice) {
-    const WIN_CONDITIONS = [`You Lose! ${computerChoice} beats ${humanChoice}`, `You Win! ${humanChoice} beats ${computerChoice}`, "Tied Game!"]
     if(!humanChoice || !computerChoice) {
         return "ERROR"
     }
     humanChoice = humanChoice.toUpperCase();
     computerChoice = computerChoice.toUpperCase();
+
+    const WIN_CONDITIONS = [`You Lose! ${computerChoice} beats ${humanChoice}`, `You Win! ${humanChoice} beats ${computerChoice}`, "Tied Game!"]
 
     let scoreDeclaration = `Human Choice: ${humanChoice}\nComputer Choice: ${computerChoice}`;
     let winner;
@@ -50,17 +51,19 @@ function playRound(humanChoice, computerChoice) {
     } else {
         switch (humanChoice) {
             case "ROCK":
-                switch(computerChoice) {
+                switch (computerChoice) {
                     case "PAPER":
                         computerScore++;
                         winner = WIN_CONDITIONS[0];
-
+                        break;
                     case "SCISSORS":
                         humanScore++;
-                        winner = WIN_CONDITIONS[1]
+                        winner = WIN_CONDITIONS[1];
+                        break;
                 }
+                break;
             case "PAPER":
-                switch(computerChoice) {
+                switch (computerChoice) {
                     case "SCISSORS":
                         computerScore++;
                         winner = WIN_CONDITIONS[0];
@@ -70,8 +73,9 @@ function playRound(humanChoice, computerChoice) {
                         winner = WIN_CONDITIONS[1];
                         break;
                 }
+                break;
             case "SCISSORS":
-                switch(computerChoice) {
+                switch (computerChoice) {
                     case "ROCK":
                         computerScore++;
                         winner = WIN_CONDITIONS[0];
@@ -79,14 +83,24 @@ function playRound(humanChoice, computerChoice) {
                     case "PAPER":
                         humanScore++;
                         winner = WIN_CONDITIONS[1];
-                        break;
+                        break;  
                 }
+                break;
         }
     }
 
     alert(`${scoreDeclaration}\n${winner}\nHuman Score: ${humanScore}\nComputer Score: ${computerScore}`)
 
     console.log(`Human Choice: ${humanChoice}\nComputer Choice: ${computerChoice}`)
+}
+
+function playGame(numberOfRounds, gameMode="best") {
+    let humanScore=0, computerScore=0;
+    let i=0;
+    while (i < numberOfRounds) {
+        playRound(getHumanChoice(), getComputerChoice());
+        i++;
+    }
 }
 
 function testComputerChoiceDistribution(trials=100) {
@@ -123,4 +137,7 @@ function testComputerChoiceDistribution(trials=100) {
 
 testComputerChoiceDistribution(10000);
 
-playRound(getHumanChoice(), getComputerChoice())
+
+// playRound(getHumanChoice(), getComputerChoice())
+
+playGame(5);
