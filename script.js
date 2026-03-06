@@ -94,7 +94,7 @@ function playRound(humanChoice, computerChoice) {
     console.log(`Human Choice: ${humanChoice}\nComputer Choice: ${computerChoice}`)
 }
 
-function playGame(numberOfRounds, gameMode="best") {
+function playGame(numberOfRounds) {
     let humanScore=0, computerScore=0;
     let i=0;
     while (i < numberOfRounds) {
@@ -139,5 +139,18 @@ testComputerChoiceDistribution(10000);
 
 
 // playRound(getHumanChoice(), getComputerChoice())
+
+function getNumberOfRounds() {
+    const rounds = Number(prompt("Welcome to Rock Paper Scissors!\nHow many rounds would you like to play?"));
+
+    if (isNaN(rounds)) {
+        alert("How many rounds of Ro-Sham-Bo do you want to play?\nPlease enter a number")
+        getNumberOfRounds()
+    } else if (rounds <= 0) {
+        alert("You are here to play at least one round of Jan-ken-pon\nIf you do not want to play, navigate to a different website.\nPlease enter a positive integer number of rounds.");
+        getNumberOfRounds();
+    }
+    return rounds;
+}
 
 playGame(5);
