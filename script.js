@@ -161,7 +161,7 @@ results.classList.add("game");
 
 const button = document.createElement("button");
 button.classList.add("replay");
-button.innerText = "Play Tic Tac Toe";
+button.innerText = "Play Rock Paper Scissors";
 
 const settings = document.createElement("div");
 settings.classList.add("settings");
