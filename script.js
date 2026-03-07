@@ -165,7 +165,17 @@ button.innerText = "Play Rock Paper Scissors";
 
 const settings = document.createElement("div");
 settings.classList.add("settings");
-settings.innerText = "Test"
+
+let settingLabel = document.createElement("label");
+settingLabel.classList.add("roundsLabel");
+settingLabel.innerText = "Number of Rounds:"
+
+let rounds = document.createElement("input");
+rounds.classList = "roundsInput";
+rounds.type = "number";
+
+settings.appendChild(settingLabel);
+settings.appendChild(rounds);
 
 results.appendChild(button);
 // results.appendChild(settings);

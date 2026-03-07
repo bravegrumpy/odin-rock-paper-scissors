@@ -6,7 +6,7 @@
     height: 90dvh;
     /* background-color: oklch(81.445% 0.09222 77.22 / 0.39); */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -15,12 +15,28 @@
 .replay {
     padding: 25px 75px;
     font-size: 1.4rem;
+    width: 400px;
 }
 
 .settings {
     padding: 25px 75px;
     font-size: 1.2rem;
+    width: 400px;
     background-color: oklch(93.517% 0.00546 286.01);
     border-radius: 5px;
     border: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.roundsLabel {
+    color: green;
+}
+
+.roundsInput {
+    width: 50px;
 }
