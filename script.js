@@ -206,7 +206,15 @@ winner.classList.add("settings");
 const prevWinner = document.createElement("p");
 prevWinner.id = "prevWinner"
 prevWinner.classList.add("roundsLabel");
-prevWinner.innerText = "Play a game!"
+
+const prevWinnerButton = document.createElement("button");
+prevWinnerButton.classList.add("replay");
+prevWinnerButton.id = "prevWinnerButton";
+prevWinnerButton.innerText = "Play a Game!";
+
+prevWinner.appendChild(prevWinnerButton);
+
+// prevWinner.innerHTML = `<button class="replay" id="prevWinnerButton">Play a Game!</button>`;
 
 winner.appendChild(prevWinner);
 
@@ -231,11 +239,20 @@ results.appendChild(runFairness);
 
 app.appendChild(results);
 
-button.addEventListener("click", () => {
+function playGameUI() {
     const numbInput = document.querySelector("input#roundsInput");
     let numbRounds = numbInput.value;
     const winner = document.querySelector("p#prevWinner");
+    winner.innerHTML = '';
 
     const prevWinner = playGame(numbRounds);
     winner.innerText = prevWinner;
+}
+
+button.addEventListener("click", () => {
+    playGameUI();
+})
+
+prevWinnerButton.addEventListener("click", () => {
+    playGameUI();
 })
