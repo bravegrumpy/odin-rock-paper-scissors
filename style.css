@@ -19,7 +19,7 @@
 }
 
 .settings {
-    padding: 25px 75px;
+    padding: 25px 50px;
     font-size: 1.2rem;
     width: 400px;
     background-color: oklch(93.517% 0.00546 286.01);
@@ -27,16 +27,23 @@
     border: 1px solid gray;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 .roundsLabel {
-    color: green;
+    background-color: oklch(91.197% 0.10998 99.81 / 0.219);
+    padding: 10px 15px;
+    box-shadow: 10px 10px 25px 10px oklch(67.888% 0.12216 79.072 / 0.295);
+    border: 2px solid oklch(22.297% 0.04201 111.464);
+    border-radius: 5px;
+    font-family: Helvetica, Arial, Helvetica, sans-serif;
 }
 
 .roundsInput {
-    width: 50px;
+    width: 60px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: oklch(75.641% 0.12285 80.678 / 0.507);
 }

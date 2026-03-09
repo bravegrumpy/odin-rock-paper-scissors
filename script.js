@@ -22,6 +22,9 @@ function getHumanChoice() {
             return choice;
         case "SCISSORS":
             return choice;
+        case "Your Mom":
+            choice = "Your Dad";
+            return choice;
         case "":
             alert("Cancelled");
             break;
@@ -29,7 +32,7 @@ function getHumanChoice() {
             alert("Cancelled")
             break;
         default:
-            alert("Please choose a valid option: 'Rock', 'Paper', or //'Scissors'\n Double check your spelling.");
+            alert("Please choose a valid option: 'Rock', 'Paper', or 'Scissors'\n Double check your spelling.");
             return getHumanChoice();
     }
 }
@@ -102,6 +105,13 @@ function playGame(numberOfRounds) {
         playRound(getHumanChoice(), getComputerChoice());
         i++;
     }
+    if (humanScore > computerScore) {
+        return "You Win!"
+    } else if (computerScore > humanScore) {
+        return "You Loose!"
+    } else {
+        return "Tie!"
+    }
 }
 
 function testComputerChoiceDistribution(trials=100) {
@@ -173,15 +183,33 @@ settingLabel.innerText = "Number of Rounds:"
 let rounds = document.createElement("input");
 rounds.classList = "roundsInput";
 rounds.type = "number";
+rounds.id = "roundsInput";
+rounds.value = 3;
 
 settings.appendChild(settingLabel);
 settings.appendChild(rounds);
 
+const winner = document.createElement("div");
+winner.classList.add("settings");
+
+const prevWinner = document.createElement("p");
+prevWinner.id = "prevWinner"
+prevWinner.classList.add("roundsLabel");
+prevWinner.innerText = "Play a game!"
+
+winner.appendChild(prevWinner);
+
 results.appendChild(button);
-// results.appendChild(settings);
+results.appendChild(settings);
+results.appendChild(winner);
 
 app.appendChild(results);
 
 button.addEventListener("click", () => {
-    let won = playGame(5);
+    const numbInput = document.querySelector("input#roundsInput");
+    let numbRounds = numbInput.value;
+    const winner = document.querySelector("p#prevWinner");
+
+    const prevWinner = playGame(numbRounds);
+    winner.innerText = prevWinner;
 })
