@@ -144,9 +144,15 @@ function testComputerChoiceDistribution(trials=100) {
     let paperPer = Math.floor((paper / (trials)) * 1000) / 10;
     let scissorsPer = Math.floor((scissors / (trials)) * 1000) / 10;
 
-    console.log(`Total Trials: ${trials}`);
+    let totalTrialsString = `Total Trials: ${trials}`;
+
+    let outcomeString = `Rock: ${rock} | ${rockPer}%\nPaper: ${paper} | ${paperPer}% \nScissors: ${scissors} | ${scissorsPer}%`;
+
+    console.log(totalTrialsString);
     
-    console.log(`Rock: ${rock} | ${rockPer}%\nPaper: ${paper} | ${paperPer}% \nScissors: ${scissors} | ${scissorsPer}%`)
+    console.log(outcomeString);
+
+    return `${totalTrialsString}\n\n${outcomeString}`;
 }
 
 testComputerChoiceDistribution(10000);
@@ -204,9 +210,24 @@ prevWinner.innerText = "Play a game!"
 
 winner.appendChild(prevWinner);
 
+const runFairness = document.createElement("div");
+runFairness.classList.add("settings");
+runFairness.classList.add("fairness");
+runFairness.id = "runFairness";
+
+const fairnessIntro = document.createElement("h2");
+fairnessIntro.innerText = "Computer Choice Outcome Distribution";
+
+let fairness = document.createElement("p");
+fairness.innerText = testComputerChoiceDistribution(1000);
+
+runFairness.appendChild(fairnessIntro);
+runFairness.appendChild(fairness);
+
 results.appendChild(button);
 results.appendChild(settings);
 results.appendChild(winner);
+results.appendChild(runFairness);
 
 app.appendChild(results);
 

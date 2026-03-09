@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 50px;
 }
 
 .replay {
@@ -32,6 +32,16 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
+}
+
+.fairness {
+    flex-direction: column;
+    border: 1px solid oklch(70.176% 0.01031 197.349);
+}
+
+.fairness h2 {
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .roundsLabel {
