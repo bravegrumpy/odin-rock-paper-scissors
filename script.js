@@ -99,19 +99,22 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame(numberOfRounds) {
     if (isNaN(numberOfRounds)) {playGame()}
-    let humanScore=0, computerScore=0;
+    // let humanScore=0, computerScore=0;
     let i=0;
     while (i < numberOfRounds) {
         playRound(getHumanChoice(), getComputerChoice());
         i++;
     }
+    sessionStorage.setItem("humanScore", humanScore)
+    sessionStorage.setItem("computerScore", computerScore)
     if (humanScore > computerScore) {
         return "You Win!"
     } else if (computerScore > humanScore) {
-        return "You Loose!"
+        return "You Lose!"
     } else {
         return "Tie!"
     }
+    
 }
 
 function testComputerChoiceDistribution(trials=100) {
@@ -185,6 +188,8 @@ rounds.classList = "roundsInput";
 rounds.type = "number";
 rounds.id = "roundsInput";
 rounds.value = 3;
+rounds.min = 1;
+rounds.max = 10;
 
 settings.appendChild(settingLabel);
 settings.appendChild(rounds);
