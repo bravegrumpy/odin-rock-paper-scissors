@@ -22,8 +22,54 @@ function getHumanChoice() {
             return choice;
         case "SCISSORS":
             return choice;
-        case "Your Mom":
+        case "YOUR MOM":
+        case "YOUR MUM":
             choice = "Your Dad";
+            return choice;
+        case "YOUR DAD":
+            const randMumMom = Math.floor(Math.random() * 2);
+            let mumMom;
+            switch (randMumMom) {
+                case 0:
+                    mumMom = "Mum";
+                    break;
+                case 1:
+                    mumMom = "Mom";
+                    break;
+            }
+            choice = `Your ${mumMom}`;
+            return choice;
+        case "YOUR MA":
+            choice = "Your Da";
+            return choice;
+        case "YOUR DA":
+            choice = "Your Ma";
+            return choice;
+        case "YOUR MAMI":
+            choice = "Your Papi";
+            return choice;
+        case "YOUR PAPI":
+            choice = "Your Mami";
+            return choice;
+        case "YOUR MAMA":
+        case "YOUR MAMMA":
+            choice = "Your Daddy";
+            return choice;
+        case "YOUR DADDY":
+            const randMammaMama = Math.floor(Math.random() * 3);
+            let mammaMama;
+            switch (randMammaMama) {
+                case 0:
+                    mammaMama = "Mama";
+                    break;
+                case 1:
+                    mammaMama = "Mamma";
+                    break;
+                case 2:
+                    mammaMama = "Momma";
+                    break;
+            }
+            choice = `Your ${mammaMama}`;
             return choice;
         case "":
             alert("Cancelled");
@@ -114,7 +160,6 @@ function playGame(numberOfRounds) {
     } else {
         return "Tie!"
     }
-    
 }
 
 function testComputerChoiceDistribution(trials=100) {
@@ -227,7 +272,7 @@ const fairnessIntro = document.createElement("h2");
 fairnessIntro.innerText = "Computer Choice Outcome Distribution";
 
 let fairness = document.createElement("p");
-fairness.innerText = testComputerChoiceDistribution(1000);
+fairness.innerText = testComputerChoiceDistribution(10000);
 
 runFairness.appendChild(fairnessIntro);
 runFairness.appendChild(fairness);
