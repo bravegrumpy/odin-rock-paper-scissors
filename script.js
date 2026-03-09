@@ -25,7 +25,8 @@ function getHumanChoice() {
         case "YOUR MOM":
         case "YOUR MUM":
             choice = "Your Dad";
-            return choice;
+            alert(choice);
+            return getHumanChoice();
         case "YOUR DAD":
             const randMumMom = Math.floor(Math.random() * 2);
             let mumMom;
@@ -38,23 +39,28 @@ function getHumanChoice() {
                     break;
             }
             choice = `Your ${mumMom}`;
-            return choice;
+            return getHumanChoice();
         case "YOUR MA":
             choice = "Your Da";
-            return choice;
+            alert(choice);
+            return getHumanChoice();
         case "YOUR DA":
             choice = "Your Ma";
-            return choice;
+            alert(choice);
+            return getHumanChoice();
         case "YOUR MAMI":
             choice = "Your Papi";
-            return choice;
+            alert(choice);
+            return getHumanChoice();
         case "YOUR PAPI":
             choice = "Your Mami";
-            return choice;
+            alert(choice);
+            return getHumanChoice();
         case "YOUR MAMA":
         case "YOUR MAMMA":
             choice = "Your Daddy";
-            return choice;
+            alert(choice);
+            return getHumanChoice();
         case "YOUR DADDY":
             const randMammaMama = Math.floor(Math.random() * 3);
             let mammaMama;
@@ -70,7 +76,8 @@ function getHumanChoice() {
                     break;
             }
             choice = `Your ${mammaMama}`;
-            return choice;
+            alert(choice);
+            return getHumanChoice();
         case "":
             alert("Cancelled");
             break;
@@ -146,6 +153,7 @@ function playRound(humanChoice, computerChoice) {
 function playGame(numberOfRounds) {
     if (isNaN(numberOfRounds)) {playGame()}
     // let humanScore=0, computerScore=0;
+    resetScores();
     let i=0;
     while (i < numberOfRounds) {
         playRound(getHumanChoice(), getComputerChoice());
@@ -160,6 +168,11 @@ function playGame(numberOfRounds) {
     } else {
         return "Tie!"
     }
+}
+
+function resetScores() {
+    sessionStorage.removeItem("humanScore");
+    sessionStorage.removeItem("computerScore");
 }
 
 function testComputerChoiceDistribution(trials=100) {
