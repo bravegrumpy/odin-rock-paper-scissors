@@ -26,12 +26,12 @@
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid transparent;
-    border-bottom: 1px solid gray;
     display: flex;
     flex-direction: row;
     gap: 20px;
     justify-content: center;
     align-items: center;
+    box-shadow: 0px 5px 50px oklch(59.735% 0.00119 14.05 / 0.26) inset;
 }
 
 .fairness {

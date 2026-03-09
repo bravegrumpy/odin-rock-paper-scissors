@@ -154,13 +154,15 @@ function playGame(numberOfRounds) {
     if (isNaN(numberOfRounds)) {playGame()}
     // let humanScore=0, computerScore=0;
     resetScores();
+    humanScore = sessionStorage.getItem("humanScore");
+    computerScore = sessionStorage.getItem("computerScore");
     let i=0;
     while (i < numberOfRounds) {
         playRound(getHumanChoice(), getComputerChoice());
         i++;
     }
-    sessionStorage.setItem("humanScore", humanScore)
-    sessionStorage.setItem("computerScore", computerScore)
+    sessionStorage.setItem("humanScore", humanScore);
+    sessionStorage.setItem("computerScore", computerScore);
     if (humanScore > computerScore) {
         return "You Win!"
     } else if (computerScore > humanScore) {
@@ -171,6 +173,11 @@ function playGame(numberOfRounds) {
 }
 
 function resetScores() {
+    sessionStorage.setItem("humanScore", 0);
+    sessionStorage.setItem("computerScore", 0);
+}
+
+function clearScores() {
     sessionStorage.removeItem("humanScore");
     sessionStorage.removeItem("computerScore");
 }
@@ -260,6 +267,7 @@ settings.appendChild(rounds);
 
 const winner = document.createElement("div");
 winner.classList.add("settings");
+winner.classList.add("winner");
 
 const prevWinner = document.createElement("p");
 prevWinner.id = "prevWinner"
@@ -271,8 +279,6 @@ prevWinnerButton.id = "prevWinnerButton";
 prevWinnerButton.innerText = "Play a Game!";
 
 prevWinner.appendChild(prevWinnerButton);
-
-// prevWinner.innerHTML = `<button class="replay" id="prevWinnerButton">Play a Game!</button>`;
 
 winner.appendChild(prevWinner);
 
