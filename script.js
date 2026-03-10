@@ -301,7 +301,14 @@ results.appendChild(settings);
 results.appendChild(winner);
 results.appendChild(runFairness);
 
+
+const showStats = document.createElement("button");
+showStats.classList.add("showStats");
+showStats.id = "showStats";
+showStats.innerText = "Show More";
+
 app.appendChild(results);
+app.appendChild(showStats);
 
 function playGameUI() {
     const numbInput = document.querySelector("input#roundsInput");
@@ -326,11 +333,6 @@ const allSettings = document.querySelectorAll(".fairness");
 allSettings.forEach((setting) => {
     setting.classList.add("hide");
 })
-
-const showStats = document.createElement("button");
-showStats.classList.add("showStats");
-showStats.id = "showStats";
-showStats.innerText = "Show More";
 
 showStats.addEventListener("click", () => {
     allSettings.forEach((setting) => {
