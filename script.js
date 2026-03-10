@@ -276,7 +276,7 @@ prevWinner.classList.add("roundsLabel");
 const prevWinnerButton = document.createElement("button");
 prevWinnerButton.classList.add("replay");
 prevWinnerButton.id = "prevWinnerButton";
-prevWinnerButton.innerText = "Play Game!";
+prevWinnerButton.innerText = "Play Rock Paper Scissors";
 
 prevWinner.appendChild(prevWinnerButton);
 
@@ -321,7 +321,7 @@ prevWinnerButton.addEventListener("click", () => {
     playGameUI();
 })
 
-const allSettings = document.querySelectorAll(".settings");
+const allSettings = document.querySelectorAll(".fairness");
 
 allSettings.forEach((setting) => {
     setting.classList.add("hide");
