@@ -327,7 +327,6 @@ allSettings.forEach((setting) => {
     setting.classList.add("hide");
 })
 
-const stats = document.querySelector("div#stats");
 const showStats = document.createElement("button");
 showStats.classList.add("showStats");
 showStats.id = "showStats";
@@ -344,4 +343,4 @@ showStats.addEventListener("click", () => {
     })
 })
 
-stats.appendChild(showStats);
+app.appendChild(showStats);
