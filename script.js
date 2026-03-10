@@ -276,7 +276,7 @@ prevWinner.classList.add("roundsLabel");
 const prevWinnerButton = document.createElement("button");
 prevWinnerButton.classList.add("replay");
 prevWinnerButton.id = "prevWinnerButton";
-prevWinnerButton.innerText = "Play a Game!";
+prevWinnerButton.innerText = "Play Game!";
 
 prevWinner.appendChild(prevWinnerButton);
 
@@ -310,7 +310,7 @@ function playGameUI() {
     winner.innerHTML = '';
 
     const prevWinner = playGame(numbRounds);
-    winner.innerText = prevWinner;
+    winner.innerText = `Last Result: ${prevWinner}`;
 }
 
 button.addEventListener("click", () => {
@@ -320,3 +320,28 @@ button.addEventListener("click", () => {
 prevWinnerButton.addEventListener("click", () => {
     playGameUI();
 })
+
+const allSettings = document.querySelectorAll(".settings");
+
+allSettings.forEach((setting) => {
+    setting.classList.add("hide");
+})
+
+const stats = document.querySelector("div#stats");
+const showStats = document.createElement("button");
+showStats.classList.add("showStats");
+showStats.id = "showStats";
+showStats.innerText = "Show More";
+
+showStats.addEventListener("click", () => {
+    allSettings.forEach((setting) => {
+        setting.classList.toggle("hide");
+        if (showStats.innerText === "Show More") {
+            showStats.innerText = "Hide More"
+        } else if (showStats.innerText === "Hide More") {
+            showStats.innerText = "Show More";
+        }
+    })
+})
+
+stats.appendChild(showStats);
