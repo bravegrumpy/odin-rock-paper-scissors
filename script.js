@@ -310,7 +310,7 @@ function playGameUI() {
     winner.innerHTML = '';
 
     const prevWinner = playGame(numbRounds);
-    winner.innerText = `Last Result: ${prevWinner}`;
+    winner.innerText = `Latest Result: ${prevWinner}`;
 }
 
 button.addEventListener("click", () => {
@@ -342,5 +342,3 @@ showStats.addEventListener("click", () => {
         }
     })
 })
-
-app.appendChild(showStats);
